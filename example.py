@@ -7,6 +7,7 @@ from google.auth.transport.requests import Request
 
 SCOPES = 'https://www.googleapis.com/auth/spreadsheets'
 
+print('Input SheetsId:')
 sheet_id = input()
 
 creds=None
@@ -46,7 +47,7 @@ requests.append({
 
 body={'requests':requests}
 response=service.spreadsheets().batchUpdate(spreadsheetId=spreadsheet_id, body=body).execute()
-sheetsid=response['replies'][0]['addSheet']['properties']['sheetId']
+sheetid=response['replies'][0]['addSheet']['properties']['sheetId']
 
 #セルに文字列を入れる
 range_ = sheetname+"!A1:B10"
